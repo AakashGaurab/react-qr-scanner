@@ -1,22 +1,19 @@
-name: Simple GitHub Actions Demo
-on: [push]
+name: storybook
+
+on: [ push ]
+
 jobs:
-  print-message:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Print a message
-        run: echo "Hello, world! This is a simple GitHub Actions workflow."
-      - name: Build
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install and Build
+        run: |
+          yarn install
+          yarn run build-storybook
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          node-version: '14'
-      - name: Install dependencies
-        run: yarn install
-      - name: Build CommonJS module
-        run: yarn build
-      
-      - name: Build ESM module
-        run: yarn build
+          branch: storybook-static
+          folder: storybook-static
