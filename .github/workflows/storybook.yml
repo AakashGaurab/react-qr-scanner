@@ -7,4 +7,4 @@ jobs:
       - name: Print a message
         run: echo "Hello, world! This is a simple GitHub Actions workflow."
       - name: Build
-        run: yarn build
+        run: npm build
