@@ -16,7 +16,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build CommonJS module
-        run: yarn build:cjs
+        run: yarn build
       
       - name: Build ESM module
-        run: yarn build:esm
+        run: yarn build
