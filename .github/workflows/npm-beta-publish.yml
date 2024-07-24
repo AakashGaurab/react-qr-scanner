@@ -16,12 +16,7 @@ jobs:
         with:
           node-version: 20.x
           registry-url: https://registry.npmjs.org/
-          scope: '@yudiel'
       - name: Install Dependencies
         run: yarn
       - name: Build
         run: yarn build
-      - name: Publish
-        run: npm publish --tag beta --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
