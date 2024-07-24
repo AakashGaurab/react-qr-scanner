@@ -30,6 +30,7 @@ export default function Finder(props: IFinderProps) {
 
     return (
         <div style={{ position: 'relative' }}>
+            
             {onOff && <OnOff scanning={scanning} startScanning={startScanning} stopScanning={stopScanning} />}
             {torch && capabilities.torch && <Torch scanning={scanning} status={torch.status} torchToggle={torch.toggle} />}
             {zoom && capabilities.zoom && <Zoom scanning={scanning} capabilities={capabilities.zoom} value={zoom.value} onZoom={zoom.onChange} />}
