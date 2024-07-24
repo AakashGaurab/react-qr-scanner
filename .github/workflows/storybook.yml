@@ -7,4 +7,19 @@ jobs:
       - name: Print a message
         run: echo "Hello, world! This is a simple GitHub Actions workflow."
       - name: Build
-        run: npm run build
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      
+      - name: Install dependencies
+        run: yarn install
+      
+      - name: Build CommonJS module
+        run: yarn build:cjs
+      
+      - name: Build ESM module
+        run: yarn build:esm
